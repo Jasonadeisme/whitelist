@@ -17,7 +17,7 @@ A small Debian firewall helper that only allows whitelisted IP addresses to conn
 
 - Debian-based Linux system
 - Root privileges
-- `iptables`
+- `apt-get` if `iptables` is not already installed
 - Optional: `ip6tables` for IPv6 filtering
 
 ## Installation
@@ -29,6 +29,8 @@ sudo bash install_whitelist.sh
 ```
 
 If you are already logged in over SSH, the installer attempts to add your current SSH client IP to the whitelist automatically. If it cannot detect the IP, it asks you to enter the first whitelist IP before enabling firewall rules.
+
+If `iptables` is not installed, the installer attempts to install it automatically with `apt-get`.
 
 ## Usage
 

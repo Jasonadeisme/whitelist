@@ -17,7 +17,7 @@
 
 - Debian 或基于 Debian 的 Linux 系统
 - root 权限
-- `iptables`
+- 如果尚未安装 `iptables`，系统需要可用的 `apt-get`
 - 可选：如果需要 IPv6 过滤，需要 `ip6tables`
 
 ## 安装
@@ -29,6 +29,8 @@ sudo bash install_whitelist.sh
 ```
 
 如果你是通过 SSH 登录 VPS 执行安装，脚本会尝试自动把当前 SSH 来源 IP 加入白名单。如果无法检测到当前 IP，脚本会要求你先输入第一个白名单 IP，然后才会启用防火墙规则。
+
+如果系统尚未安装 `iptables`，安装脚本会尝试通过 `apt-get` 自动安装。
 
 ## 使用
 

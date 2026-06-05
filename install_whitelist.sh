@@ -7,8 +7,20 @@ if [[ "${EUID}" -ne 0 ]]; then
 fi
 
 if ! command -v iptables >/dev/null 2>&1; then
-  echo "iptables is required. Install it first: apt update && apt install -y iptables"
-  exit 1
+  if ! command -v apt-get >/dev/null 2>&1; then
+    echo "iptables is required, but apt-get was not found. Please install iptables manually."
+    exit 1
+  fi
+
+  echo "iptables was not found. Installing iptables with apt-get..."
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update
+  apt-get install -y iptables
+
+  if ! command -v iptables >/dev/null 2>&1; then
+    echo "iptables installation failed. Please install iptables manually."
+    exit 1
+  fi
 fi
 
 install -d /usr/local/sbin /usr/local/bin /etc/vps-whitelist
