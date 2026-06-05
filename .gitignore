@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build and cache output
+dist/
+build/
+out/
+target/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Archives and temporary files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+tmp/
+temp/
